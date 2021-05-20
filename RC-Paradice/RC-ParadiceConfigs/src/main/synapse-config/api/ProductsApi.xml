@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/products" name="ProductsApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/add">
+        <inSequence>
+            <log/>
+            <send>
+                <endpoint key="addProduct"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="PUT" url-mapping="/update">
+        <inSequence>
+            <log/>
+            <send>
+                <endpoint key="updateProduct"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="DELETE" uri-template="/delete/{productId}">
+        <inSequence>
+            <log/>
+            <send>
+                <endpoint key="deleteProduct"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/seller?sellerId=${sellerId}&amp;query=${query}">
+        <inSequence>
+            <log/>
+            <send>
+                <endpoint key="searchProduct"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/{productId}">
+        <inSequence>
+            <log/>
+            <send>
+                <endpoint key="getproductbyId"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

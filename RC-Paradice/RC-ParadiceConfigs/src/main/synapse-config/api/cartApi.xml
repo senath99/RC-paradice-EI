@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/cart" name="cartApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/{sellerId}">
+        <inSequence>
+            <log/>
+            <send>
+                <endpoint key="getAllcart"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="/sendSMS">
+        <inSequence>
+            <log/>
+            <send>
+                <endpoint key="sendEmail"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="validateOTP">
+        <inSequence>
+            <log/>
+            <send>
+                <endpoint key="validateOTP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

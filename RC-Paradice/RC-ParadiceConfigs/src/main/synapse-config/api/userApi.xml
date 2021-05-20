@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/user" name="userApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/user">
+        <inSequence>
+            <log/>
+            <send>
+                <endpoint key="registerUser"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>
